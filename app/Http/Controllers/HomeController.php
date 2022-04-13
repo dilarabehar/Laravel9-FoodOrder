@@ -10,7 +10,7 @@ class HomeController extends Controller
     //
     public function index()
     {
-        echo "index function";
+        return view('home.index');
     }
 
     public function test()
