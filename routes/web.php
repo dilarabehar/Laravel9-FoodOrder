@@ -40,6 +40,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-//****************************ADMIN PANEL****************************************************
-
+//****************************************** ADMIN PANEL ***********************************************
 Route::get('/admin',[AdminController::class,'index'])->name('admin');
