@@ -1,36 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield("title")</title>
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="{{asset('assets')}}/admin/img/svg/logo.svg" type="image/x-icon">
-    <!-- Custom styles -->
-    <link rel="stylesheet" href="{{asset('assets')}}/admin/css/style.min.css">
-    @yield("head")
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Bootstrap Admin Template : Binary Admin</title>
+    <!-- BOOTSTRAP STYLES-->
+    <link href="{{asset('assets')}}/assets/admin/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="{{asset('assets')}}/assets/admin/css/font-awesome.css" rel="stylesheet" />
+    <!-- CUSTOM STYLES-->
+    <link href="{{asset('assets')}}/assets/admin/css/custom.css" rel="stylesheet" />
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
-
 <body>
-
-@include("admin.header")
-
-@section('sidebar')
-    @include("admin.sidebar")
-@show
+@include('admin.header')
+@include('admin.sidebar')
 @yield('content')
-<div class="layer"></div>
-<!-- ! Body -->
-<a class="skip-link sr-only" href="#skip-target">Skip to content</a>
-<div class="page-flex">
-</div>
-
-@include("admin.footer")
-@yield('foot')
-
-
-
+@include('admin.footer')
 </body>
 </html>
