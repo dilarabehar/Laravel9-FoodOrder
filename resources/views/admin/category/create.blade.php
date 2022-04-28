@@ -9,6 +9,7 @@
                 <h2>Add Category</h2>
             </div>
         </div>
+
         <!-- /. ROW  -->
 
         <div class="panel-body">

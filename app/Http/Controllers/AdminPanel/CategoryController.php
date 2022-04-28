@@ -15,8 +15,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
-        return view('admin.category.index');
+
+        $data = Category::all();
+        return view('admin.category.index',[
+            'data' => $data
+            ]);
     }
 
     /**
