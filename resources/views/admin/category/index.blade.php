@@ -6,8 +6,7 @@
     <div id="page-inner">
         <div class="row">
             <div class="col-md-12">
-                <h2>Category List</h2>
-                <h5>Welcome Jhon Deo , Love to see you back. </h5>
+                <a href="/admin/category/create" class="btn btn-info" style="width: 200px">Add Category</a>
                 <hr>
 
             </div>
