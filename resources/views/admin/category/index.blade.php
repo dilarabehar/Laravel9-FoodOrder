@@ -42,7 +42,8 @@
                                     <td>{{$rs->image}}</td>
                                     <td>{{$rs->status}}</td>
                                     <td><a href="/admin/category/edit/{{$rs->edit}}" class="btn btn-primary btn-sm">Edit</a></td>
-                                    <td><a href="/admin/category/delete/{{$rs->delete}}"class="btn btn-danger btn-sm">Delete</a></td>
+                                    <td><a href="/admin/category/delete/{{$rs->delete}}"class="btn btn-danger btn-sm"
+                                        onclick="return confirm('Are you sure?')">Delete</a></td>
                                     <td><a href="/admin/category/show/{{$rs->show}}"class="btn btn-success btn-sm">Show</a></td>
                                 </tr>
                             @endforeach
