@@ -16,7 +16,7 @@
 
             <div class="panel-heading"></div>
             <div class="row">
-                <form role="form" action="/admin/category/update/{{$data->id}}" method="post">
+                <form role="form" action="{{route('admin.category.update',['id'=>$data->id])}}" method="post">
                     @csrf
                 <div class="col-md-6">
                     <h3>Category Elements</h3>

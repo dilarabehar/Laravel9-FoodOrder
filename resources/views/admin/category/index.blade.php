@@ -6,7 +6,7 @@
     <div id="page-inner">
         <div class="row">
             <div class="col-md-12">
-                <a href="/admin/category/create" class="btn btn-info" style="width: 200px">Add Category</a>
+                <a href="{{route('admin.category.create')}}" class="btn btn-info" style="width: 200px">Add Category</a>
                 <hr>
 
             </div>
@@ -41,8 +41,8 @@
                                     <td>{{$rs->description}}</td>
                                     <td>{{$rs->image}}</td>
                                     <td>{{$rs->status}}</td>
-                                    <td><a href="/admin/category/edit/{{$rs->edit}}" class="btn btn-primary btn-sm">Edit</a></td>
-                                    <td><a href="/admin/category/delete/{{$rs->delete}}"class="btn btn-danger btn-sm"
+                                    <td><a href="{{route('admin.category.edit',['id'=>$rs->id])}}" class="btn btn-primary btn-sm">Edit</a></td>
+                                    <td><a href="{{route('admin.category.destroy',['id'=>$rs->id])}}"class="btn btn-danger btn-sm"
                                         onclick="return confirm('Are you sure?')">Delete</a></td>
                                     <td><a href="/admin/category/show/{{$rs->show}}"class="btn btn-success btn-sm">Show</a></td>
                                 </tr>

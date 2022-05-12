@@ -10,8 +10,8 @@
             </button>
 
         </nav>
-            <a class="navbar-brand" href="index.blade.php">Binary admin</a>
-        <div style="color:white;padding:15px 50px 5px 50px;float:right;font-size:16px;"> Last access : 30 May 2015 &nbsp; <a href="https://www.free-css.com/free-css-templates" class="btn btn-danger square-btn-adjust">Logout</a></div>
+            <a class="navbar-brand" href="{{route('admin.index')}}">Binary admin</a>
+        <div style="color:white;padding:15px 50px 5px 50px;float:right;font-size:16px;"><a href="https://www.free-css.com/free-css-templates" class="btn btn-danger square-btn-adjust">Logout</a></div>
     </nav>
         </div>
 
