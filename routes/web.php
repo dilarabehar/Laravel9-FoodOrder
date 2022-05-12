@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminPanel\AdminProductController;
 use App\Http\Controllers\AdminPanel\CategoryController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -42,10 +43,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 //****************************************** ADMIN PANEL ***********************************************
-Route::prefix('admin')->name('admin.')->controller(CategoryController::class)->group(function (){
+Route::prefix('admin')->name('admin.')->group(function (){
     Route::get('/',[AdminController::class,'index'])->name('index');
 //****************************************** ADMIN CATEGORY ROUTES *************************************
-Route::prefix('/category')->name('category')->group(function (){
+Route::prefix('/category')->name('category')->controller(CategoryController::class)->group(function (){
     Route::get('/',[CategoryController::class,'index'])->name('');
     Route::get('/create','create')->name('.create');
     Route::post('/store','store')->name('.store');
@@ -53,5 +54,16 @@ Route::prefix('/category')->name('category')->group(function (){
     Route::post('/update/{id}','update')->name('.update');
     Route::get('/destroy/{id}' , 'destroy')->name('.destroy');
     Route::get('/show/{id}', 'show')->name('.show');
+    });
+
+    //****************************************** ADMIN PRODUCT ROUTES *************************************
+    Route::prefix('/product')->name('product')->controller(AdminProductController::class)->group(function (){
+        Route::get('/',[CategoryController::class,'index'])->name('');
+        Route::get('/create','create')->name('.create');
+        Route::post('/store','store')->name('.store');
+        Route::get('/edit/{id}','edit')->name('.edit');
+        Route::post('/update/{id}','update')->name('.update');
+        Route::get('/destroy/{id}' , 'destroy')->name('.destroy');
+        Route::get('/show/{id}', 'show')->name('.show');
     });
 });

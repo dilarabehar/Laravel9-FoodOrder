@@ -16,7 +16,7 @@
 
             <div class="panel-heading"></div>
             <div class="row">
-                <form role="form" action="{{route('admin.category.store')}}" method="post" enctype="multipart/form-data">
+                <form role="form" action="{{route('admin.category.store')}}" method="post">
                     @csrf
                 <div class="col-md-6">
                     <h3>Category Elements</h3>
