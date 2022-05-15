@@ -21,6 +21,15 @@
                 <div class="col-md-6">
                     <h3>Category Elements</h3>
                     <br>
+                    <label>Parent Category</label>
+
+                    <select class="form-control select2" name="parent_id" >
+                        <option value="0" selected="selected">Main Category</option>
+                        @foreach($data as $rs)
+                            <option value="{{$rs->id}}" >{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</option>
+                        @endforeach
+                    </select>
+                    <br>
                     <div class="form-group">
                         <label>Title</label>
                         <input class="form-control" name="title" placeholder="Title">
@@ -47,7 +56,7 @@
                         <option>False</option>
                     </select>
                     <br><br>
-                    <button type="submit" class="btn btn-default" name="save">Save Button</button>
+                    <button type="submit" class="btn btn-medium" name="save">Save </button>
 
         <!-- /. PAGE INNER  -->
     </div>
