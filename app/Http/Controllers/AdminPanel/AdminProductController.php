@@ -4,6 +4,7 @@ namespace App\Http\Controllers\AdminPanel;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class AdminProductController extends Controller
@@ -29,8 +30,11 @@ class AdminProductController extends Controller
      */
     public function create()
     {
-        //
-        return view('admin.product.create');
+        $data = Category::all();
+
+        return view('admin.product.create',[
+            'data' => $data
+            ]);
     }
 
     /**
@@ -42,7 +46,7 @@ class AdminProductController extends Controller
     public function store(Request $request)
     {
         //
-        $data = new Category();
+        $data = new Product();
         $data->parent_id=0;
         $data->title = $request->title;
         $data->keywords = $request->keywords;
@@ -53,15 +57,16 @@ class AdminProductController extends Controller
             $data->image = $request->file('image')->store('images');
         }
         $data->save();
+        return redirect('admin/product');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category,$id)
+    public function show(Product $product,$id)
     {
         //
         $data = Product::find($id);
@@ -79,11 +84,11 @@ class AdminProductController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category,$id)
+    public function edit(Product $product,$id)
     {
         //
         $data = Product::find($id);
-        $datalist = Product::all();
+        $datalist = Category::all();
         return view('admin.product.edit',[
             'data' => $data,
             'datalist'=>$datalist
@@ -96,10 +101,10 @@ class AdminProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category,$id)
+    public function update(Request $request, Product $product,$id)
     {
         //
         $data = Product::find($id);
@@ -117,20 +122,21 @@ class AdminProductController extends Controller
             $data->image = $request->file('image')->store('images');
         }
         $data->save();
-        return redirect('admin/category');
+        return redirect('admin/product');
+
 
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category,$id)
+    public function destroy(Product $product,$id)
     {
         $data = Product::find($id);
         $data->delete();
-        return redirect('admin/category');
+        return redirect('admin/product');
     }
 }

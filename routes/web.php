@@ -58,7 +58,7 @@ Route::prefix('/category')->name('category')->controller(CategoryController::cla
 
     //****************************************** ADMIN PRODUCT ROUTES *************************************
     Route::prefix('/product')->name('product')->controller(AdminProductController::class)->group(function (){
-        Route::get('/',[CategoryController::class,'index'])->name('');
+        Route::get('/','index')->name('');
         Route::get('/create','create')->name('.create');
         Route::post('/store','store')->name('.store');
         Route::get('/edit/{id}','edit')->name('.edit');

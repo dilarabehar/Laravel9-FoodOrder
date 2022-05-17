@@ -15,13 +15,13 @@
         <!-- /. ROW  -->
         <div class="col-md-6" style="width: auto">
             <div class="panel panel-default" >
-                <div class="panel-heading"> Kitchen Sink</div>
+                <div class="panel-heading"> Category List</div>
                 <div class="panel-body">
                     <div class="table-responsive" style="width: 800px">
                         <table class="table table-striped table-bordered table-hover" >
                             <thead>
                             <tr>
-                                <th>Id</th>
+                                <th>Category</th>
                                 <th>Title</th>
                                 <th>Image</th>
                                 <th>Status</th>
@@ -34,6 +34,7 @@
                             @foreach($data as $rs)
                                 <tr>
                                     <td>{{$rs->id}}</td>
+                                    <td> {{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs, $rs->title)}} </td>
                                     <td>{{$rs->title}}</td>
                                     <td>
                                         @if($rs->image)
