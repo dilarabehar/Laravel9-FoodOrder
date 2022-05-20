@@ -1,12 +1,12 @@
 @extends('layouts.adminbase')
-@section('title','Add Category')
+@section('title','Add Product')
 @section('content')
 <!-- /. NAV SIDE  -->
 <div id="page-wrapper" >
     <div id="page-inner">
         <div class="row">
             <div class="col-md-12">
-                <h2>Add Category</h2>
+                <h2>Add Product</h2>
             </div>
         </div>
 
@@ -16,10 +16,18 @@
 
             <div class="panel-heading"></div>
             <div class="row">
-                <form role="form" action="{{route('admin.category.store')}}" method="post">
+                <form role="form" action="{{route('admin.product.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                 <div class="col-md-6">
                     <h3>Category Elements</h3>
+                    <br>
+                    <label>Parent Category</label>
+
+                    <select class="form-control select2" name="parent_id" >
+                        @foreach($data as $rs)
+                            <option value="{{$rs->id}}" >{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</option>
+                        @endforeach
+                    </select>
                     <br>
                     <div class="form-group">
                         <label>Title</label>
@@ -33,7 +41,29 @@
                     <br>
                     <div class="form-group">
                         <label>Description</label>
-                        <input class="form-control" name="description" placeholder="Description">
+                        <textarea class="form-control" name="detail">
+
+                        </textarea>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Price</label>
+                        <input type="number" class="form-control" name="price" value="0">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Quantity</label>
+                        <input type="number" class="form-control" name="quantity" value="0">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Minimum Quantity</label>
+                        <input type="number" class="form-control" name="minquantity" value="0">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Tax %</label>
+                        <input type="number" class="form-control" name="tax" value="0">
                     </div>
                     <br>
                     <div class="form-group">
@@ -47,7 +77,7 @@
                         <option>False</option>
                     </select>
                     <br><br>
-                    <button type="submit" class="btn btn-default" name="save">Save Button</button>
+                    <button type="submit" class="btn btn-medium" name="save">Save </button>
 
         <!-- /. PAGE INNER  -->
     </div>

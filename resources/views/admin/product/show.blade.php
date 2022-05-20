@@ -1,5 +1,5 @@
 @extends('layouts.adminbase')
-@section('title','Show Category : '.$data->title)
+@section('title','Show Product : '.$data->title)
 @section('content')
 <!-- /. NAV SIDE  -->
 <div id="page-wrapper" >
@@ -26,6 +26,10 @@
                             <td>{{$data->id}}</td>
                         </tr>
                         <tr class="success">
+                            <th>Category</th>
+                            <td>{{$data->category_id}}</td>
+                        </tr>
+                        <tr class="success">
                             <th>Title</th>
                             <td>{{$data->title}}</td>
                         </tr>
@@ -34,8 +38,26 @@
                             <td>{{$data->keywords}}</td>
                         </tr>
                         <tr class="success">
+                            <th>Price</th>
+                            <td>{{$data->price}}</td>
+                        </tr>
+                        <tr class="success">
+                            <th>Quantity</th>
+                            <td>{{$data->quantity}}</td>
+                        </tr>
+                        <tr class="success">
+                            <th>Minimum Quantity</th>
+                            <td>{{$data->minquantity}}</td>
+                        </tr>
+                        <tr class="success">
+                            <th>Tax</th>
+                            <td>{{$data->tax}}</td>
+                        </tr>
+                        <tr class="success">
                             <th>Image</th>
-                            <td>{{$data->image}}</td>
+                            <td>@if($data->image)
+                                    <img src="{{Storage::url($data->image)}}" style="height: 200px">
+                                @endif</td>
                         </tr>
                         <tr class="success">
                             <th>Status</th>
@@ -53,8 +75,8 @@
                         </tbody>
 
                     </table>
-                    <a href="{{route('admin.category.edit',['id'=>$data->id])}}" class="btn btn-success" style="width: 200px">Edit</a>
-                    <a href="{{route('admin.category.destroy',['id'=>$data->id])}}" onclick="return confirm('Are you sure?')" class="btn btn-danger" style="width: 200px">Delete</a>
+                    <a href="{{route('admin.product.edit',['id'=>$data->id])}}" class="btn btn-success" style="width: 200px">Edit</a>
+                    <a href="{{route('admin.product.destroy',['id'=>$data->id])}}" onclick="return confirm('Are you sure?')" class="btn btn-danger" style="width: 200px">Delete</a>
                 </div>
             </div>
 

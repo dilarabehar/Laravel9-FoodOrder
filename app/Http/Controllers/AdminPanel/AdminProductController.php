@@ -47,10 +47,13 @@ class AdminProductController extends Controller
     {
         //
         $data = new Product();
-        $data->parent_id=0;
+        $data -> category_id = $request -> category_id;
+        $data -> user_id =0 ;// $request -> category_id;
         $data->title = $request->title;
         $data->keywords = $request->keywords;
         $data->description = $request->description;
+        $data->detail = $request->detail;
+        $data->price = $request->price;
         $data->status = $request->status;
         if ($request->file('image'))
         {
@@ -114,13 +117,14 @@ class AdminProductController extends Controller
         $data->title = $request->title;
         $data->keywords = $request->keywords;
         $data->description = $request->description;
-        $data->detail=$request->detail;
-        $data->price=$request->price;
-        $data->status = $request->status;
         if ($request->file('image'))
         {
             $data->image = $request->file('image')->store('images');
         }
+        $data->detail=$request->detail;
+        $data->price=$request->price;
+        $data->status = $request->status;
+
         $data->save();
         return redirect('admin/product');
 

@@ -21,10 +21,13 @@
                         <table class="table table-striped table-bordered table-hover" >
                             <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Category</th>
                                 <th>Title</th>
                                 <th>Price</th>
                                 <th>Quantity</th>
+                                <th>Image</th>
+                                <th>Status</th>
                                 <th style="width: auto">Edit</th>
                                 <th style="width: auto">Delete</th>
                                 <th style="width: auto">Show</th>
