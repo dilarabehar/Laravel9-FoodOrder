@@ -48,7 +48,7 @@ class AdminProductController extends Controller
         //
         $data = new Product();
         $data -> category_id = $request -> category_id;
-        $data -> user_id =0 ;// $request -> category_id;
+        $data -> user_id =$request -> category_id;
         $data->title = $request->title;
         $data->keywords = $request->keywords;
         $data->description = $request->description;
@@ -112,8 +112,8 @@ class AdminProductController extends Controller
         //
         $data = Product::find($id);
         $data->category_id=$request->category_id;
-        $data->user_id=0; //$request->user_id;
-        $data->restaurant_id=0; //$request->restaurant_id;
+        $data->user_id=$request->user_id;
+        $data->restaurant_id=$request->restaurant_id;
         $data->title = $request->title;
         $data->keywords = $request->keywords;
         $data->description = $request->description;

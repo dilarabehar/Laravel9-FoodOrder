@@ -131,7 +131,6 @@ class CategoryController extends Controller
             $data->image = $request->file('image')->store('images');
         }
         $data->save();
-        $data->save();
         return redirect('admin/category');
     }
 

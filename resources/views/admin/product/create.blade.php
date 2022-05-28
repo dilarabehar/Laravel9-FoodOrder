@@ -19,15 +19,25 @@
                 <form role="form" action="{{route('admin.product.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                 <div class="col-md-6">
-                    <h3>Category Elements</h3>
+                    <h3>Product Elements</h3>
                     <br>
                     <label>Parent Category</label>
 
-                    <select class="form-control select2" name="parent_id" >
+                    <select class="form-control select2" name="category_id" >
                         @foreach($data as $rs)
                             <option value="{{$rs->id}}" >{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</option>
                         @endforeach
                     </select>
+                    <br>
+                    <div class="form-group">
+                        <label>User_id</label>
+                        <input class="form-control" name="title" placeholder="User_id">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Restaurant_id</label>
+                        <input class="form-control" name="title" placeholder="Restaurant_id">
+                    </div>
                     <br>
                     <div class="form-group">
                         <label>Title</label>
@@ -77,7 +87,7 @@
                         <option>False</option>
                     </select>
                     <br><br>
-                    <button type="submit" class="btn btn-medium" name="save">Save </button>
+                    <button type="submit"  class="btn btn-medium" name="save">Save </button>
 
         <!-- /. PAGE INNER  -->
     </div>

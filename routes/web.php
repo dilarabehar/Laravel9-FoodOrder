@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminPanel\AdminProductController;
 use App\Http\Controllers\AdminPanel\CategoryController;
+use App\Http\Controllers\AdminPanel\ImageController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminPanel\HomeController as AdminController;
@@ -65,5 +66,15 @@ Route::prefix('/category')->name('category')->controller(CategoryController::cla
         Route::post('/update/{id}','update')->name('.update');
         Route::get('/destroy/{id}' , 'destroy')->name('.destroy');
         Route::get('/show/{id}', 'show')->name('.show');
+    });
+
+    //****************************************** ADMIN PRODUCT IMAGE GALLERY ROUTES *************************************
+    Route::prefix('/image')->name('image')->controller(ImageController::class)->group(function (){
+        Route::get('/{pid}','index')->name('');
+        Route::get('/create/{pid}','create')->name('.create');
+        Route::post('/store/{pid}','store')->name('.store');
+        Route::post('/update/{pid}/{id}','update')->name('.update');
+        Route::get('/destroy/{pid}/{id}' , 'destroy')->name('.destroy');
+
     });
 });
