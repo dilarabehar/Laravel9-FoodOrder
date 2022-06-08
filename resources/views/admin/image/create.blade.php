@@ -1,5 +1,6 @@
 @extends('layouts.adminbase')
 @section('title','Add Category')
+
 @section('content')
 <!-- /. NAV SIDE  -->
 <div id="page-wrapper" >
@@ -42,7 +43,9 @@
                     <br>
                     <div class="form-group">
                         <label>Description</label>
-                        <input class="form-control" name="description" placeholder="Description">
+                        <textarea class="form-control" id="detail" name="detail" placeholder="Description">
+                        </textarea>
+
                     </div>
                     <br>
                     <div class="form-group">

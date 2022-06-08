@@ -1,5 +1,8 @@
 @extends('layouts.adminbase')
 @section('title','Edit Category : '.$data->title)
+@section('head')
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/ckeditor.js"></script>
+@endsection
 @section('content')
 <!-- /. NAV SIDE  -->
 <div id="page-wrapper" >
@@ -44,7 +47,19 @@
                     <br>
                     <div class="form-group">
                         <label>Description</label>
-                        <input class="form-control" name="description" value="{{$data->description}}">
+                        <textarea class="form-control" id="detail" name="detail">
+
+                        </textarea>
+                        <script>
+                            ClassicEditor
+                                .create( document.querySelector( '#detail' ) )
+                                .then( editor => {
+                                    console.log( editor );
+                                } )
+                                .catch( error => {
+                                    console.error( error );
+                                } );
+                        </script>
                     </div>
                     <br>
                     <div class="form-group">

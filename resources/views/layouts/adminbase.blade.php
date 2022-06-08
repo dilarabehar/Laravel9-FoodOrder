@@ -12,6 +12,7 @@
     <link href="{{asset('assets')}}/assets/admin/css/custom.css" rel="stylesheet" />
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    @yield('head')
 </head>
 <body>
 @include('admin.header')

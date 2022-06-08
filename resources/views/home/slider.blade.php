@@ -41,45 +41,14 @@
         </div>
     </div>
     <div class="slider_container">
+        @foreach($sliderdata as $rs)
         <div class="item">
             <div class="img-box">
-                <img src="{{asset('assets')}}/images/slider-img1.png" alt="" />
+                <img src="{{Storage::url($rs->image)}}" style= "width: 308px; height: 307px" />
+                <h1>{{$rs->title}}</h1>
             </div>
         </div>
-        <div class="item">
-            <div class="img-box">
-                <img src="{{asset('assets')}}/images/slider-img2.png" alt="" />
-            </div>
-        </div>
-        <div class="item">
-            <div class="img-box">
-                <img src="{{asset('assets')}}/images/slider-img3.png" alt="" />
-            </div>
-        </div>
-        <div class="item">
-            <div class="img-box">
-                <img src="{{asset('assets')}}/images/slider-img4.png" alt="" />
-            </div>
-        </div>
-        <div class="item">
-            <div class="img-box">
-                <img src="{{asset('assets')}}/images/slider-img1.png" alt="" />
-            </div>
-        </div>
-        <div class="item">
-            <div class="img-box">
-                <img src="{{asset('assets')}}/images/slider-img2.png" alt="" />
-            </div>
-        </div>
-        <div class="item">
-            <div class="img-box">
-                <img src="{{asset('assets')}}/images/slider-img3.png" alt="" />
-            </div>
-        </div>
-        <div class="item">
-            <div class="img-box">
-                <img src="{{asset('assets')}}/images/slider-img4.png" alt="" />
-            </div>
+        @endforeach
         </div>
     </div>
 </section>

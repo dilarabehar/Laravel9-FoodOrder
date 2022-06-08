@@ -1,5 +1,8 @@
 @extends('layouts.adminbase')
 @section('title','Add Product')
+@section('head')
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/ckeditor.js"></script>
+@endsection
 @section('content')
 <!-- /. NAV SIDE  -->
 <div id="page-wrapper" >
@@ -31,12 +34,12 @@
                     <br>
                     <div class="form-group">
                         <label>User_id</label>
-                        <input class="form-control" name="title" placeholder="User_id">
+                        <input class="form-control" name="user_id" placeholder="User_id">
                     </div>
                     <br>
                     <div class="form-group">
                         <label>Restaurant_id</label>
-                        <input class="form-control" name="title" placeholder="Restaurant_id">
+                        <input class="form-control" name="restaurant_id" placeholder="Restaurant_id">
                     </div>
                     <br>
                     <div class="form-group">
@@ -51,9 +54,19 @@
                     <br>
                     <div class="form-group">
                         <label>Description</label>
-                        <textarea class="form-control" name="detail">
+                        <textarea class="form-control" id="detail" name="detail">
 
                         </textarea>
+                        <script>
+                            ClassicEditor
+                                .create( document.querySelector( '#detail' ) )
+                                .then( editor => {
+                                    console.log( editor );
+                                } )
+                                .catch( error => {
+                                    console.error( error );
+                                } );
+                        </script>
                     </div>
                     <br>
                     <div class="form-group">
