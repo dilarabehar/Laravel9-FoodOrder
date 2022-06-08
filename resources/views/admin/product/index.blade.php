@@ -8,7 +8,6 @@
             <div class="col-md-12">
                 <a href="{{route('admin.product.create')}}" class="btn btn-info" style="width: 200px">Add Product</a>
                 <hr>
-
             </div>
         </div>
         <br>
@@ -48,7 +47,10 @@
                                         @endif
                                         </td>
                                     <td>
-
+                                        <a href="{{route('admin.image.index',['pid'=>$rs->id])}}"
+                                        onclick="return !window.open(this.href,'','top=50 left=100 width=800,height=700')">
+                                         <img src="{{asset('assets')}}/assets/admin/img/icon.jpg" style="height: 40px">
+                                        </a>
                                     </td>
                                     <td>{{$rs->status}}</td>
                                     <td><a href="{{route('admin.product.edit',['id'=>$rs->id])}}" class="btn btn-primary btn-sm">Edit</a></td>
